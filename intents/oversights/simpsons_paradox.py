@@ -118,7 +118,7 @@ https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
     # initial_result_table is the result table requested by user.
     initial_result_table = aspects.group_by(query_table,
                                             grouping_columns,
-                                            summary_operator)
+                                            summary_operator)['table']
     # suggestions store the list of debiasing for this oversight.
     suggestions = []
 
@@ -144,7 +144,7 @@ https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
             # result table after adding the new column in the grouping list.
             new_result_table = aspects.group_by(new_cropped_table,
                                                 new_grouping_columns,
-                                                summary_operator)
+                                                summary_operator)['table']
             
             # it will return the debiasing suggestion after comparing the
             # initial result table and new result table.
