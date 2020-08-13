@@ -5,7 +5,7 @@
  * Show Sum of Units for Item from OrderDate 2019-01-06 to 2019-07-12
  */
 var jsonQueryShow = 
-	'{"table":' +
+  '{"table":' +
       '[["OrderDate","Region","Rep","Item","Units","Unit Cost","Total"],' +
       '["1/6/2019","East","Jones","Pencil",95,1.99,189.05],' +
       '["1/23/2019","Central","Kivell","Binder",50,19.99,999.4999999999999],' +
@@ -19,28 +19,29 @@ var jsonQueryShow =
       '["6/8/2019","East","Jones","Binder",60,8.99,539.4],' +
       '["6/25/2019","Central","Morgan","Pencil",90,4.99,449.1],' +
       '["7/12/2019","East","Howard","Binder",29,1.99,57.71]],' +
-	'"intent":"show",' +
-	'"metric":"Units",' +
-	'"summaryOperator":"Sum",' +
-	'"isAsc":false,' +
-	'"topKLimit":10,' +
-	'"dimensions":["Item"],' +
-	'"dateRange":{"dateCol":"OrderDate","dateStart":"2019-01-06","dateEnd":"2019-07-12"},' +
-	'"dateColumns":' +
+  '"intent":"show",' +
+    '"rangeA1Notation":"C3:I15",' +
+  '"metric":"Units",' +
+  '"summaryOperator":"Sum",' +
+  '"isAsc":false,' +
+  '"topKLimit":10,' +
+  '"dimensions":["Item"],' +
+  '"dateRange":{"dateCol":"OrderDate","dateStart":"2019-01-06","dateEnd":"2019-07-12"},' +
+  '"dateColumns":' +
       '{"OrderDate":' +
         '{"type":"CONSISTENT",' +
         '"day_first":false,' +
         '"min_date":{"day_first_false":"2019-01-06"},' +
         '"max_date":{"day_first_false":"2019-07-12"}}' +       
       '}' +
-	'}';
+  '}';
 
 /**
  * TOP-K
  * Find the top-7 Rep with maximum Total where Units is Greater than 50
  */
 var jsonQueryTopK = 
-	'{"table":' +
+  '{"table":' +
       '[["OrderDate","Region","Rep","Item","Units","Unit Cost","Total"],' +
       '["1/6/2019","East","Jones","Pencil",95,1.99,189.05],' +
       '["1/23/2019","Central","Kivell","Binder",50,19.99,999.4999999999999],' +
@@ -54,27 +55,28 @@ var jsonQueryTopK =
       '["6/8/2019","East","Jones","Binder",60,8.99,539.4],' +
       '["6/25/2019","Central","Morgan","Pencil",90,4.99,449.1],' +
       '["7/12/2019","East","Howard","Binder",29,1.99,57.71]],' +
-	'"intent":"topk",' +
-	'"metric":"Total",' +
-	'"isAsc":false,' +
-	'"topKLimit":7,' +
-	'"dimensions":["Rep"],' +
-	'"slices":[{"sliceCol":"Units","sliceOp":"Greater than","sliceVal":50}],' +
-	'"dateColumns":' +
+  '"intent":"topk",' +
+    '"rangeA1Notation":"C3:I15",' +
+  '"metric":"Total",' +
+  '"isAsc":false,' +
+  '"topKLimit":7,' +
+  '"dimensions":["Rep"],' +
+  '"slices":[{"sliceCol":"Units","sliceOp":"Greater than","sliceVal":50}],' +
+  '"dateColumns":' +
       '{"OrderDate":' +
         '{"type":"CONSISTENT",' +
         '"day_first":false,' +
         '"min_date":{"day_first_false":"2019-01-06"},' +
         '"max_date":{"day_first_false":"2019-07-12"}}' +       
       '}' +
-	'}';
+  '}';
 
 /**
  * SLICE-COMPARE
  * Compare the Mean of Unit Cost for the Region East and West by Item
  */
 var jsonQuerySliceCompare = 
-	'{"table":' +
+  '{"table":' +
       '[["OrderDate","Region","Rep","Item","Units","Unit Cost","Total"],' +
       '["1/6/2019","East","Jones","Pencil",95,1.99,189.05],' +
       '["1/23/2019","Central","Kivell","Binder",50,19.99,999.4999999999999],' +
@@ -88,28 +90,29 @@ var jsonQuerySliceCompare =
       '["6/8/2019","East","Jones","Binder",60,8.99,539.4],' +
       '["6/25/2019","Central","Morgan","Pencil",90,4.99,449.1],' +
       '["7/12/2019","East","Howard","Binder",29,1.99,57.71]],' +
-	'"intent":"slice_compare",' +
-	'"metric":"Unit Cost",' +
-	'"summaryOperator":"Mean",' +
-	'"isAsc":false,' +
-	'"topKLimit":10,' +
-	'"dimensions":["Item"],' +
-	'"comparisonValue":{"comparisonColumn":"Region","slice1":"East","slice2":"West"},' +
-	'"dateColumns":' +
+  '"intent":"slice_compare",' +
+    '"rangeA1Notation":"C3:I15",' +
+  '"metric":"Unit Cost",' +
+  '"summaryOperator":"Mean",' +
+  '"isAsc":false,' +
+  '"topKLimit":10,' +
+  '"dimensions":["Item"],' +
+  '"comparisonValue":{"comparisonColumn":"Region","slice1":"East","slice2":"West"},' +
+  '"dateColumns":' +
       '{"OrderDate":' +
         '{"type":"CONSISTENT",' +
         '"day_first":false,' +
         '"min_date":{"day_first_false":"2019-01-06"},' +
         '"max_date":{"day_first_false":"2019-07-12"}}' +       
       '}' +
-	'}';
+  '}';
 
 /**
  * TIME-COMPARE
  * Compare the Mean of Unit Cost for the OrderDate 2019-01-06 to 2019-03-15 and 2019-04-01 to 2019-07-12 by Region
  */
 var jsonQueryTimeCompare = 
-	'{"table":' +
+  '{"table":' +
       '[["OrderDate","Region","Rep","Item","Units","Unit Cost","Total"],' +
       '["1/6/2019","East","Jones","Pencil",95,1.99,189.05],' +
       '["1/23/2019","Central","Kivell","Binder",50,19.99,999.4999999999999],' +
@@ -123,33 +126,34 @@ var jsonQueryTimeCompare =
       '["6/8/2019","East","Jones","Binder",60,8.99,539.4],' +
       '["6/25/2019","Central","Morgan","Pencil",90,4.99,449.1],' +
       '["7/12/2019","East","Howard","Binder",29,1.99,57.71]],' +
-	'"intent":"time_compare",' +
-	'"metric":"Unit Cost",' +
-	'"summaryOperator":"Mean",' +
-	'"isAsc":false,' +
-	'"topKLimit":10,' +
-	'"dimensions":["Region"],' +
-	'"compareDateRange":' +
+  '"intent":"time_compare",' +
+    '"rangeA1Notation":"C3:I15",' +
+  '"metric":"Unit Cost",' +
+  '"summaryOperator":"Mean",' +
+  '"isAsc":false,' +
+  '"topKLimit":10,' +
+  '"dimensions":["Region"],' +
+  '"compareDateRange":' +
       '{"dateCol":"OrderDate",' + 
       '"dateStart1":"2019-01-06",' + 
       '"dateEnd1":"2019-03-15",' + 
       '"dateStart2":"2019-04-01",' + 
       '"dateEnd2":"2019-07-12"},' +
-	'"dateColumns":' +
+  '"dateColumns":' +
       '{"OrderDate":' +
         '{"type":"CONSISTENT",' +
         '"day_first":false,' +
         '"min_date":{"day_first_false":"2019-01-06"},' +
         '"max_date":{"day_first_false":"2019-07-12"}}' +       
       '}' +
-	'}';
+  '}';
     
 /**
  * TREND
  * Monthly trend of Sum of Units where Item is In Binder, Pencil, Pen from OrderDate 2019-01-06 to 2019-07-12
  */
 var jsonQueryTrend = 
-	'{"table":' +
+  '{"table":' +
       '[["OrderDate","Region","Rep","Item","Units","Unit Cost","Total"],' +
       '["1/6/2019","East","Jones","Pencil",95,1.99,189.05],' +
       '["1/23/2019","Central","Kivell","Binder",50,19.99,999.4999999999999],' +
@@ -163,29 +167,30 @@ var jsonQueryTrend =
       '["6/8/2019","East","Jones","Binder",60,8.99,539.4],' +
       '["6/25/2019","Central","Morgan","Pencil",90,4.99,449.1],' +
       '["7/12/2019","East","Howard","Binder",29,1.99,57.71]],' +
-	'"intent":"trend",' +
-	'"metric":"Units",' +
-	'"summaryOperator":"Sum",' +
-	'"isAsc":false,' +
-	'"topKLimit":10,' +
-	'"slices":[{"sliceCol":"Item","sliceOp":"In","sliceVal":["Binder","Pencil","Pen"]}],' +
-	'"dateRange":{"dateCol":"OrderDate","dateStart":"2019-01-06","dateEnd":"2019-07-12"},' +
-	'"timeGranularity":"Monthly",' +
-	'"dateColumns":' +
+  '"intent":"trend",' +
+    '"rangeA1Notation":"C3:I15",' +
+  '"metric":"Units",' +
+  '"summaryOperator":"Sum",' +
+  '"isAsc":false,' +
+  '"topKLimit":10,' +
+  '"slices":[{"sliceCol":"Item","sliceOp":"In","sliceVal":["Binder","Pencil","Pen"]}],' +
+  '"dateRange":{"dateCol":"OrderDate","dateStart":"2019-01-06","dateEnd":"2019-07-12"},' +
+  '"timeGranularity":"Monthly",' +
+  '"dateColumns":' +
       '{"OrderDate":' +
         '{"type":"CONSISTENT",' +
         '"day_first":false,' +
         '"min_date":{"day_first_false":"2019-01-06"},' +
         '"max_date":{"day_first_false":"2019-07-12"}}' +       
       '}' +
-	'}';	
+  '}';  
 
 /**
  * CORRELATION
  * Correlation between Unit Cost and Total for each Item
  */
 var jsonQueryCorrelation = 
-	'{"table":' +
+  '{"table":' +
       '[["OrderDate","Region","Rep","Item","Units","Unit Cost","Total"],' +
       '["1/6/2019","East","Jones","Pencil",95,1.99,189.05],' +
       '["1/23/2019","Central","Kivell","Binder",50,19.99,999.4999999999999],' +
@@ -199,16 +204,17 @@ var jsonQueryCorrelation =
       '["6/8/2019","East","Jones","Binder",60,8.99,539.4],' +
       '["6/25/2019","Central","Morgan","Pencil",90,4.99,449.1],' +
       '["7/12/2019","East","Howard","Binder",29,1.99,57.71]],' +
-	'"intent":"correlation",' +
-	'"isAsc":false,' +
-	'"topKLimit":10,' +
-	'"dimensions":["Item"],' +
-	'"correlationMetrics":{"metric1":"Unit Cost","metric2":"Total"},' +
-	'"dateColumns":' +
+  '"intent":"correlation",' +
+    '"rangeA1Notation":"C3:I15",' +
+  '"isAsc":false,' +
+  '"topKLimit":10,' +
+  '"dimensions":["Item"],' +
+  '"correlationMetrics":{"metric1":"Unit Cost","metric2":"Total"},' +
+  '"dateColumns":' +
       '{"OrderDate":' +
         '{"type":"CONSISTENT",' +
         '"day_first":false,' +
         '"min_date":{"day_first_false":"2019-01-06"},' +
         '"max_date":{"day_first_false":"2019-07-12"}}' +       
       '}' +
-	'}';
+  '}';
